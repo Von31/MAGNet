@@ -56,30 +56,28 @@
         }
 
         .logo {
-            padding: 0 1.5rem 2rem;
+            padding: 0.5rem 1rem 2rem;
             margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
         }
 
         .logo-image {
             width: 100%;
-            height: auto;
-            min-height: 180px;
+            margin: 0 auto 1rem;
             background: transparent;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
+            display: block;
             border: none;
-            overflow: visible;
+            overflow: hidden;
         }
 
         .logo-image img {
             width: 100%;
             height: auto;
+            display: block;
             object-fit: contain;
-            padding: 0;
-            max-width: none;
+            margin: 0;
+            padding: 0.5rem;
         }
 
         .logo-placeholder {
@@ -105,24 +103,26 @@
 
         .logo-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             justify-content: center;
             align-items: flex-start;
+            padding: 1.5rem 0;
+            margin-top: 1rem;
         }
 
         .logo-link-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
         .logo-link {
-            width: 48px;
-            height: 48px;
-            border-radius: 8px;
-            background: #f3f4f6;
-            border: 1px solid #e5e7eb;
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -130,25 +130,27 @@
             transition: all 0.2s ease;
             color: #4b5563;
             text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
         .logo-link:hover {
-            background: #ffffff;
-            color: #111827;
-            border-color: #d1d5db;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background: #1f2937;
+            color: #ffffff;
+            border-color: #1f2937;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
         }
 
         .logo-link svg {
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
         }
 
         .logo-link-label {
-            font-size: 0.75rem;
-            color: #6b7280;
+            font-size: 0.875rem;
+            color: #4b5563;
             text-align: center;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .nav-section {
@@ -2119,28 +2121,11 @@
         <aside class="sidebar">
             <div class="logo">
                 <div class="logo-image">
-                    <img src="assets/Magnet_logo.png" alt="MAGNeT Logo" />
+                    <img src="assets/logo_v3.png" alt="MAGNeT Logo" />
                 </div>
                 <!-- <h1>MAGNeT</h1>
                 <p>Multi-Agent Diffusion Forcing Transformer</p> -->
-                <div class="logo-links">
-                    <div class="logo-link-wrapper">
-                        <a href="#paper" class="logo-link">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                            </svg>
-                        </a>
-                        <span class="logo-link-label">Paper</span>
-                    </div>
-                    <div class="logo-link-wrapper">
-                        <a href="#code" class="logo-link">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                            </svg>
-                        </a>
-                        <span class="logo-link-label">Coming Soon</span>
-                    </div>
-                </div>
+            
             </div>
 
             <nav class="nav-section">
@@ -2186,24 +2171,41 @@
             <section class="hero-section">
                 <h2>Diffusion Forcing for Multi-Agent Interaction</h2>
                 <br>
-                <p class="hero-description">Vongani H. Maluleke<sup>*1</sup>, Kie Horiuchi<sup>*2</sup>, Lea Wilken<sup>1</sup>, Evonne Ng<sup>3</sup>, Jitendra Malik<sup>1</sup>, Angjoo Kanazawa<sup>1</sup></p>
-                <p class="hero-description"><sup>1</sup>UC Berkeley, <sup>2</sup>Sony Group Corporation, <sup>3</sup>Meta</p>
+                <p class="hero-description">Vongani H. Maluleke<sup>*&sect;</sup>, Kie Horiuchi<sup>*&dagger;&sect;</sup>, Lea Wilken<sup>&sect;</sup>, Evonne Ng<sup>&Dagger;</sup>, Jitendra Malik<sup>&sect;</sup>, Angjoo Kanazawa<sup>&sect;</sup></p>
+                <p class="hero-description"> Sony Group Corporation<sup>&dagger;</sup>, Meta<sup>&Dagger;</sup>, UC Berkeley<sup>&sect;</sup></p>
 
-                <p class="hero-description"><sup>*</sup>Equal contribution</p>
+                <p class="hero-description" style="font-size: 1rem; color: #6b7280;"><sup>*</sup>Equal contribution</p>
 
-                
+                <div class="logo-links">
+                  <div class="logo-link-wrapper">
+                      <a href="#paper" class="logo-link">
+                          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                          </svg>
+                      </a>
+                      <span class="logo-link-label">Paper</span>
+                  </div>
+                  <div class="logo-link-wrapper">
+                      <a href="#code" class="logo-link">
+                          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                          </svg>
+                      </a>
+                      <span class="logo-link-label">Code Coming Soon</span>
+                  </div>
+              </div>
             </section>
 
             <!-- Teaser Video Section -->
             <section id="teaser" class="section">
                 <div class="section-header">
-                    <h3>Teaser Video</h3>
+                    <!-- <h3>Teaser Video</h3> -->
                 </div>
                 <div class="teaser-video">
                     <div class="video-player">
                         <video controls autoplay muted playsinline preload="metadata" poster="assets/teaser_thumbnail.jpg">
-                            <source src="assets/MagNet_teaser.webm" type="video/webm">
-                            <source src="assets/MagNet_teaser.mp4" type="video/mp4">
+                            <!-- <source src="assets/MagNet_teaser.webm" type="video/webm"> -->
+                            <source src="assets/MagNet_Teaser_121825.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="play-icon-large">

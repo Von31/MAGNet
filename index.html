@@ -1670,6 +1670,12 @@
             transform: translate(-50%, -50%);
             text-align: center;
             z-index: 1;
+            width: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2px;
+            box-sizing: border-box;
         }
 
         .magnet-encoder-title {
@@ -1677,6 +1683,8 @@
             font-weight: 700;
             color: #d97706;
             margin-bottom: 2px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .magnet-encoder-subtitle {
@@ -1698,6 +1706,7 @@
             border-radius: 2px;
             position: relative;
             overflow: hidden;
+            width: 100%;
         }
 
         .magnet-encoder-layer-bar::after {
@@ -2135,6 +2144,12 @@
             transform: translate(-50%, -50%);
             text-align: center;
             z-index: 1;
+            width: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2px;
+            box-sizing: border-box;
         }
 
         .magnet-decoder-title {
@@ -2142,6 +2157,8 @@
             font-weight: 700;
             color: #16a34a;
             margin-bottom: 2px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .magnet-decoder-subtitle {
@@ -2163,6 +2180,7 @@
             border-radius: 2px;
             position: relative;
             overflow: hidden;
+            width: 100%;
         }
 
         .magnet-decoder-layer-bar::after {
@@ -2190,6 +2208,8 @@
             align-items: flex-start;
             gap: 24px;
             margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid #cbd5e1;
             padding-top: 14px;
             border-top: 1px solid #cbd5e1;
         }
@@ -2277,6 +2297,7 @@
             width: 24px;
             text-align: right;
             font-family: ui-monospace, monospace;
+            font-weight: 600;
             font-weight: 600;
         }
 
@@ -2380,6 +2401,13 @@
                     <span>Abstract</span>
                 </a>
 
+                <a href="#capabilities" class="nav-item">
+                    <!-- Sparkles/Magic icon for Capabilities -->
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                    </svg>
+                    <span>Model Capabilities</span>
+                </a>
                
                 <a href="#method" class="nav-item">
                     <!-- Network/Architecture icon for Method -->
@@ -2395,6 +2423,13 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                     </svg>
                     <span>Denoising Schedule</span>
+                </a>
+                <a href="#comparisons" class="nav-item">
+                    <!-- Scale/Compare icon for Comparisons -->
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path>
+                    </svg>
+                    <span>Baseline Comparisons</span>
                 </a>
             </nav>
         </aside>
@@ -2412,7 +2447,7 @@
 
                 <div class="logo-links">
                   <div class="logo-link-wrapper">
-                      <a href="#paper" class="logo-link">
+                      <a href="https://arxiv.org/abs/2512.17900" class="logo-link">
                           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                           </svg>
@@ -2437,9 +2472,9 @@
                 </div>
                 <div class="teaser-video">
                     <div class="video-player">
-                        <video controls autoplay muted playsinline preload="metadata" poster="assets/teaser_thumbnail.jpg">
-                            <source src="assets/MagNet_Teaser_121825.webm" type="video/webm">
-                            <source src="assets/MagNet_Teaser_121825.mp4" type="video/mp4">
+                        <video controls autoplay muted playsinline preload="metadata" poster="./assets/teaser_thumbnail.jpg">
+                            <source src="./assets/MagNet-Teaser.webm" type="video/webm">
+                            <source src="./assets/MagNet-Teaser.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <div class="play-icon-large">
@@ -2462,6 +2497,313 @@
                 </div>
             </section>
 
+            <!-- Model Capabilities Section -->
+            <section id="capabilities" class="section">
+                <div class="section-header">
+                    <h3>Model Capabilities</h3>
+                    <p>Explore diverse multi-agent motion generation tasks</p>
+                </div>
+
+                <div class="capability-grid">
+                    <!-- Dyadic Prediction -->
+                    <div class="capability-card" data-capability="dyadic">
+                        <div class="video-gallery-section">
+                            <div class="video-gallery-container">
+                                <div class="video-gallery" id="videoGalleryDyadic">
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="1" poster="assets/model_results/dyadic_prediction/Duobox_1-thumbnail.jpg">
+                                        <source src="assets/model_results/dyadic_prediction/Duobox_1.webm" type="video/webm">
+                                        <source src="assets/model_results/dyadic_prediction/Duobox_1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="2" poster="assets/model_results/dyadic_prediction/Duobox_2-thumbnail.jpg">
+                                        <source src="assets/model_results/dyadic_prediction/Duobox_2.webm" type="video/webm">
+                                        <source src="assets/model_results/dyadic_prediction/Duobox_2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="3" poster="assets/model_results/dyadic_prediction/G001T003A017R014_Chase-thumbnail.jpg">
+                                        <source src="assets/model_results/dyadic_prediction/G001T003A017R014_Chase.webm" type="video/webm">
+                                        <source src="assets/model_results/dyadic_prediction/G001T003A017R014_Chase.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" src="assets/model_results/dyadic_prediction/Samba_010_004.mp4" autoplay muted playsinline loop data-video-index="4"></video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="5" poster="assets/model_results/dyadic_prediction/Tango_005_023-thumbnail.jpg">
+                                        <source src="assets/model_results/dyadic_prediction/Tango_005_023.webm" type="video/webm">
+                                        <source src="assets/model_results/dyadic_prediction/Tango_005_023.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="gallery-caption-container">
+                                <div class="gallery-nav-controls">
+                                    <button class="gallery-nav left scrollLeftBtn" data-gallery="videoGalleryDyadic">&lt;</button>
+                                    <button class="gallery-nav right scrollRightBtn" data-gallery="videoGalleryDyadic">&gt;</button>
+                                </div>
+                                <p class="gallery-caption">
+                                    <b>Dyadic Prediction:</b> Jointly predict future motion of both agents from past observations, ensuring coordinated and realistic two-person interactions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Polyadic Prediction(N=3) -->
+                    <div class="capability-card" data-capability="polyadic3">
+                        <div class="video-gallery-section">
+                            <div class="video-gallery-container">
+                                <div class="video-gallery" id="videoGalleryPolyadic3">
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="1" poster="./assets/model_results/3people/meta_trio_0-thumbnail.jpg">
+                                        <source src="./assets/model_results/3people/meta_trio_0.webm" type="video/webm">
+                                        <source src="./assets/model_results/3people/meta_trio_0.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="2" poster="./assets/model_results/3people/meta_trio_1-thumbnail.jpg">
+                                        <source src="./assets/model_results/3people/meta_trio_1.webm" type="video/webm">
+                                        <source src="./assets/model_results/3people/meta_trio_1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="3" poster="./assets/model_results/3people/meta_trio_2-thumbnail.jpg">
+                                        <source src="./assets/model_results/3people/meta_trio_2.webm" type="video/webm">
+                                        <source src="./assets/model_results/3people/meta_trio_2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="4" poster="./assets/model_results/3people/meta_trio_3-thumbnail.jpg">
+                                        <source src="./assets/model_results/3people/meta_trio_3.webm" type="video/webm">
+                                        <source src="./assets/model_results/3people/meta_trio_3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="5" poster="./assets/model_results/3people/meta_trio_4-thumbnail.jpg">
+                                        <source src="./assets/model_results/3people/meta_trio_4.webm" type="video/webm">
+                                        <source src="./assets/model_results/3people/meta_trio_4.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="gallery-caption-container">
+                                <div class="gallery-nav-controls">
+                                    <button class="gallery-nav left scrollLeftBtn" data-gallery="videoGalleryPolyadic3">&lt;</button>
+                                    <button class="gallery-nav right scrollRightBtn" data-gallery="videoGalleryPolyadic3">&gt;</button>
+                                </div>
+                                <p class="gallery-caption">
+                                    <b>Polyadic Prediction(N=3):</b> Predict the next action of all agents given the current and historical motion of all agents.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Polyadic Prediction(N=4) -->
+                    <div class="capability-card" data-capability="polyadic4">
+                        <div class="video-gallery-section">
+                            <div class="video-gallery-container">
+                                <div class="video-gallery" id="videoGalleryPolyadic4">
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="1" poster="assets/model_results/4people/meta_quad_v10_0-thumbnail.jpg">
+                                        <source src="assets/model_results/4people/meta_quad_v10_0.webm" type="video/webm">
+                                        <source src="assets/model_results/4people/meta_quad_v10_0.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="2" poster="assets/model_results/4people/meta_quad_v10_1-thumbnail.jpg">
+                                        <source src="assets/model_results/4people/meta_quad_v10_1.webm" type="video/webm">
+                                        <source src="assets/model_results/4people/meta_quad_v10_1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="3" poster="assets/model_results/4people/meta_quad_v10_2-thumbnail.jpg">
+                                        <source src="assets/model_results/4people/meta_quad_v10_2.webm" type="video/webm">
+                                        <source src="assets/model_results/4people/meta_quad_v10_2.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" src="assets/model_results/4people/meta_quad_v10_3.webm" autoplay muted playsinline loop data-video-index="4"></video>
+                                        <source src="assets/model_results/4people/meta_quad_v10_3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="5" poster="assets/model_results/4people/meta_quad_v10_4-thumbnail.jpg">
+                                        <source src="assets/model_results/4people/meta_quad_v10_4.webm" type="video/webm">
+                                        <source src="assets/model_results/4people/meta_quad_v10_4.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="gallery-caption-container">
+                                <div class="gallery-nav-controls">
+                                    <button class="gallery-nav left scrollLeftBtn" data-gallery="videoGalleryPolyadic4">&lt;</button>
+                                    <button class="gallery-nav right scrollRightBtn" data-gallery="videoGalleryPolyadic4">&gt;</button>
+                                </div>
+                                <p class="gallery-caption">
+                                    <b>Polyadic Prediction(N=4):</b> Predict the next action of all agents given the current and historical motion of all agents.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sync: Agentic Sampling -->
+                    <div class="capability-card" data-capability="sync">
+                        <div class="video-gallery-section">
+                            <div class="video-gallery-container">
+                                <div class="video-gallery" id="videoGallerySync">
+                                    <video class="gallery-video" src="assets/model_results/sync/071_ma_free_liu_free_te0.mp4" autoplay muted playsinline loop data-video-index="1"></video>
+                                    <video class="gallery-video" src="assets/model_results/sync/092_tian_free_ma_free_te0.mp4" autoplay muted playsinline loop data-video-index="2"></video>
+                                    <video class="gallery-video" src="assets/model_results/sync/098_tian_free_ma_free_te0.mp4" autoplay muted playsinline loop data-video-index="3"></video>
+                                </div>
+                            </div>
+                            <div class="gallery-caption-container">
+                                <div class="gallery-nav-controls">
+                                    <button class="gallery-nav left scrollLeftBtn" data-gallery="videoGallerySync">&lt;</button>
+                                    <button class="gallery-nav right scrollRightBtn" data-gallery="videoGallerySync">&gt;</button>
+                                </div>
+                                <p class="gallery-caption">
+                                    <b>Synchronous Agentic Sampling:</b> All agents generate motion simultaneously in parallel, each responding to the observed actions of others at the same time step.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Async: Agentic Sampling -->
+                    <div class="capability-card" data-capability="async">
+                        <div class="video-gallery-section">
+                            <div class="video-gallery-container">
+                                <div class="video-gallery" id="videoGalleryAsync">
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="1" poster="assets/model_results/async/019_ma_cross-leadup_liu_defense_te0-thumbnail.jpg">
+                                        <source src="assets/model_results/async/019_ma_cross-leadup_liu_defense_te0.webm" type="video/webm">
+                                        <source src="assets/model_results/async/019_ma_cross-leadup_liu_defense_te0.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="2" poster="assets/model_results/async/108_tian_free_ma_free_te0-thumbnail.jpg">
+                                        <source src="assets/model_results/async/108_tian_free_ma_free_te0.webm" type="video/webm">
+                                        <source src="assets/model_results/async/108_tian_free_ma_free_te0.mp4" type="video/mp4">
+                                        <!-- Your browser does not support the video tag. -->
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="3" poster="assets/model_results/async/110_tian_free_ma_free_te0-thumbnail.jpg">
+                                        <source src="assets/model_results/async/110_tian_free_ma_free_te0.webm" type="video/webm">
+                                        <source src="assets/model_results/async/110_tian_free_ma_free_te0.mp4" type="video/mp4">
+                                        <!-- Your browser does not support the video tag. -->
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="4" poster="assets/model_results/async/111_tian_free_ma_free_te0-thumbnail.jpg">
+                                        <source src="assets/model_results/async/111_tian_free_ma_free_te0.webm" type="video/webm">
+                                        <source src="assets/model_results/async/111_tian_free_ma_free_te0.mp4" type="video/mp4">
+                                </div>
+                            </div>
+                            <div class="gallery-caption-container">
+                                <div class="gallery-nav-controls">
+                                    <button class="gallery-nav left scrollLeftBtn" data-gallery="videoGalleryAsync">&lt;</button>
+                                    <button class="gallery-nav right scrollRightBtn" data-gallery="videoGalleryAsync">&gt;</button>
+                                </div>
+                                <p class="gallery-caption">
+                                    <b>Asynchronous Agentic Sampling:</b> Agents generate motion sequentially in turn-taking fashion, enabling highly reactive behaviors and distributed inference.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Partner Prediction -->
+                    <div class="capability-card" data-capability="partnerpred">
+                        <div class="video-gallery-section">
+                            <div class="video-gallery-container">
+                                <div class="video-gallery" id="videoGalleryPartnerPred">
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="1" poster="./assets/model_results/partner_prediction/duobox_022_pivot-thumbnail.jpg">
+                                        <source src="./assets/model_results/partner_prediction/duobox_022_pivot.webm" type="video/webm">
+                                        <source src="./assets/model_results/partner_prediction/duobox_022_pivot.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="2" poster="./assets/model_results/partner_prediction/duobox_093_free_pp_ours-thumbnail.jpg">
+                                        <source src="./assets/model_results/partner_prediction/duobox_093_free_pp_ours.webm" type="video/webm">
+                                        <source src="./assets/model_results/partner_prediction/duobox_093_free_pp_ours.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="3" poster="./assets/model_results/partner_prediction/interx_024handshake_5-thumbnail.jpg">
+                                        <source src="./assets/model_results/partner_prediction/interx_024handshake_5.webm" type="video/webm">
+                                        <source src="./assets/model_results/partner_prediction/interx_024handshake_5.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="4" poster="./assets/model_results/partner_prediction/interx_025hug_5-thumbnail.jpg">
+                                        <source src="./assets/model_results/partner_prediction/interx_025hug_5.webm" type="video/webm">
+                                        <source src="./assets/model_results/partner_prediction/interx_025hug_5.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="5" poster="./assets/model_results/partner_prediction/interx_034chat_5-thumbnail.jpg">
+                                        <source src="./assets/model_results/partner_prediction/interx_034chat_5.webm" type="video/webm">
+                                        <source src="./assets/model_results/partner_prediction/interx_034chat_5.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="gallery-caption-container">
+                                <div class="gallery-nav-controls">
+                                    <button class="gallery-nav left scrollLeftBtn" data-gallery="videoGalleryPartnerPred">&lt;</button>
+                                    <button class="gallery-nav right scrollRightBtn" data-gallery="videoGalleryPartnerPred">&gt;</button>
+                                </div>
+                                <p class="gallery-caption">
+                                    <b>Partner Prediction:</b> Predict one agent's future motion given both agents' past motion, generating reactive and contextually appropriate responses.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Partner Inpainting -->
+                    <div class="capability-card" data-capability="partnerinpaint">
+                        <div class="video-gallery-section">
+                            <div class="video-gallery-container">
+                                <div class="video-gallery" id="videoGalleryPartnerInpaint">
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="1" poster="./assets/model_results/inpainting/duolando_Jive_inpainting-thumbnail.jpg">
+                                        <source src="./assets/model_results/inpainting/duolando_Jive_inpainting.webm" type="video/webm">
+                                        <source src="./assets/model_results/inpainting/duolando_Jive_inpainting.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="2" poster="./assets/model_results/inpainting/duolando_qiaqiaqia_inpainting-thumbnail.jpg">
+                                        <source src="./assets/model_results/inpainting/duolando_qiaqiaqia_inpainting.webm" type="video/webm">
+                                        <source src="./assets/model_results/inpainting/duolando_qiaqiaqia_inpainting.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="3" poster="./assets/model_results/inpainting/duolando_tango_inpainting-thumbnail.jpg">
+                                        <source src="./assets/model_results/inpainting/duolando_tango_inpainting.webm" type="video/webm">
+                                        <source src="./assets/model_results/inpainting/duolando_tango_inpainting.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="gallery-caption-container">
+                                <div class="gallery-nav-controls">
+                                    <button class="gallery-nav left scrollLeftBtn" data-gallery="videoGalleryPartnerInpaint">&lt;</button>
+                                    <button class="gallery-nav right scrollRightBtn" data-gallery="videoGalleryPartnerInpaint">&gt;</button>
+                                </div>
+                                <p class="gallery-caption">
+                                    <b>Partner Inpainting:</b> Generate one agent's complete motion sequence given the full motion of their partner, reconstructing coordinated interactions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inbetweening -->
+                    <div class="capability-card" data-capability="inbetween">
+                        <div class="video-gallery-section">
+                            <div class="video-gallery-container">
+                                <div class="video-gallery" id="videoGalleryInbetween">
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="1" poster="./assets/model_results/inbetweening/duobox_inbetweening_1-thumbnail.jpg">
+                                        <source src="./assets/model_results/inbetweening/duobox_inbetweening_1.webm" type="video/webm">
+                                        <source src="./assets/model_results/inbetweening/duobox_inbetweening_1.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" src="assets/model_results/inbetweening/duolando_inbetweening_1.mp4" autoplay muted playsinline loop data-video-index="2"></video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="3" poster="./assets/model_results/inbetweening/duobox_inbetweening_3-thumbnail.jpg">
+                                        <source src="./assets/model_results/inbetweening/duobox_inbetweening_3.webm" type="video/webm">
+                                        <source src="./assets/model_results/inbetweening/duobox_inbetweening_3.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="4" poster="./assets/model_results/inbetweening/duobox_inbetweening_4-thumbnail.jpg">
+                                        <source src="./assets/model_results/inbetweening/duobox_inbetweening_4.webm" type="video/webm">
+                                        <source src="./assets/model_results/inbetweening/duobox_inbetweening_4.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="gallery-caption-container">
+                                <div class="gallery-nav-controls">
+                                    <button class="gallery-nav left scrollLeftBtn" data-gallery="videoGalleryInbetween">&lt;</button>
+                                    <button class="gallery-nav right scrollRightBtn" data-gallery="videoGalleryInbetween">&gt;</button>
+                                </div>
+                                <p class="gallery-caption">
+                                    <b>Motion In-Betweening:</b> Generate smooth transitions between specified keyframes for all agents, supporting flexible motion control and editing.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- Method Video Section -->
             <section id="method" class="section">
@@ -2953,6 +3295,212 @@
                 </div>
             </section>
 
+            <!-- Baseline Comparisons Section -->
+            <section id="comparisons" class="section">
+                <div class="section-header">
+                    <h3>Baseline Comparisons</h3>
+                    <p>Comparison with state-of-the-art methods on key tasks</p>
+                </div>
+
+                <!-- Dyadic Prediction Comparison -->
+                <h4 class="subsection-title">Dyadic Prediction</h4>
+                <div class="capability-card" data-capability="dyadic-comparison">
+                    <div class="video-gallery-section">
+                        <div class="video-gallery-container">
+                            <div class="video-gallery" id="videoGalleryDyadicComparison">
+                                <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="1" poster="assets/model_results/baseline_r2r_future_prediction/004_jab_shanbi_ul_r2r_vs_ours_caption-thumbnail.jpg">
+                                    <source src="assets/model_results/baseline_r2r_future_prediction/004_jab_shanbi_ul_r2r_vs_ours_caption.webm" type="video/webm">
+                                    <source src="assets/model_results/baseline_r2r_future_prediction/004_jab_shanbi_ul_r2r_vs_ours_caption.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="2" poster="assets/model_results/baseline_r2r_future_prediction/038_combi_ul_r2r_vs_ours2_caption-thumbnail.jpg">
+                                    <source src="assets/model_results/baseline_r2r_future_prediction/038_combi_ul_r2r_vs_ours2_caption.webm" type="video/webm">
+                                    <source src="assets/model_results/baseline_r2r_future_prediction/038_combi_ul_r2r_vs_ours2_caption.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="3" poster="assets/model_results/baseline_r2r_future_prediction/052_free_ul_r2r_vs_ours_caption-thumbnail.jpg">
+                                    <source src="assets/model_results/baseline_r2r_future_prediction/052_free_ul_r2r_vs_ours_caption.webm" type="video/webm">
+                                    <source src="assets/model_results/baseline_r2r_future_prediction/052_free_ul_r2r_vs_ours_caption.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="4" poster="assets/model_results/baseline_r2r_future_prediction/100_r2r_vs_ours_caption-thumbnail.jpg">
+                                    <source src="assets/model_results/baseline_r2r_future_prediction/100_r2r_vs_ours_caption.webm" type="video/webm">
+                                    <source src="assets/model_results/baseline_r2r_future_prediction/100_r2r_vs_ours_caption.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="5" poster="assets/model_results/baseline_r2r_future_prediction/108_free_ul_r2r_vs_ours_caption-thumbnail.jpg">
+                                    <source src="assets/model_results/baseline_r2r_future_prediction/108_free_ul_r2r_vs_ours_caption.webm" type="video/webm">
+                                    <source src="assets/model_results/baseline_r2r_future_prediction/108_free_ul_r2r_vs_ours_caption.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div class="gallery-caption-container">
+                            <div class="gallery-nav-controls">
+                                <button class="gallery-nav left scrollLeftBtn" data-gallery="videoGalleryDyadicComparison">&lt;</button>
+                                <button class="gallery-nav right scrollRightBtn" data-gallery="videoGalleryDyadicComparison">&gt;</button>
+                            </div>
+                            <p class="gallery-caption">
+                                <b>Ready-to-React vs MAGNeT (Ours):</b> Side-by-side comparison of dyadic future prediction results between the Ready-to-React baseline and our MAGNeT model.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partner Prediction Comparison -->
+                <h4 class="subsection-title">Partner Prediction</h4>
+                <div class="capability-card" data-capability="partner-prediction-comparison">
+                    <div class="video-gallery-section">
+                        <div class="video-gallery-container">
+                            <div class="video-gallery" id="videoGalleryPartnerPredComparison">
+                                <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="1" poster="assets/model_results/baseline_r2r_partner_prediction/004_shanbi_pp_r2r_vs_ours_caption-thumbnail.jpg">
+                                    <source src="assets/model_results/baseline_r2r_partner_prediction/004_shanbi_pp_r2r_vs_ours_caption.webm" type="video/webm">
+                                    <source src="assets/model_results/baseline_r2r_partner_prediction/004_shanbi_pp_r2r_vs_ours_caption.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="2" poster="assets/model_results/baseline_r2r_partner_prediction/020_leadup_pp_r2r_vs_ours_caption-thumbnail.jpg">
+                                    <source src="assets/model_results/baseline_r2r_partner_prediction/020_leadup_pp_r2r_vs_ours_caption.webm" type="video/webm">
+                                    <source src="assets/model_results/baseline_r2r_partner_prediction/020_leadup_pp_r2r_vs_ours_caption.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="3" poster="assets/model_results/baseline_r2r_partner_prediction/027_combi_pp_r2r_vs_ours_caption-thumbnail.jpg">
+                                    <source src="assets/model_results/baseline_r2r_partner_prediction/027_combi_pp_r2r_vs_ours_caption.webm" type="video/webm">
+                                    <source src="assets/model_results/baseline_r2r_partner_prediction/027_combi_pp_r2r_vs_ours_caption.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="4" poster="assets/model_results/baseline_r2r_partner_prediction/059_pp_r2r_vs_ours_caption-thumbnail.jpg">
+                                    <source src="assets/model_results/baseline_r2r_partner_prediction/059_pp_r2r_vs_ours_caption.webm" type="video/webm">
+                                    <source src="assets/model_results/baseline_r2r_partner_prediction/059_pp_r2r_vs_ours_caption.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="5" poster="assets/model_results/baseline_r2r_partner_prediction/093_free_pp_r2r_vs_ours_caption-thumbnail.jpg">
+                                    <source src="assets/model_results/baseline_r2r_partner_prediction/093_free_pp_r2r_vs_ours_caption.webm" type="video/webm">
+                                    <source src="assets/model_results/baseline_r2r_partner_prediction/093_free_pp_r2r_vs_ours_caption.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div class="gallery-caption-container">
+                            <div class="gallery-nav-controls">
+                                <button class="gallery-nav left scrollLeftBtn" data-gallery="videoGalleryPartnerPredComparison">&lt;</button>
+                                <button class="gallery-nav right scrollRightBtn" data-gallery="videoGalleryPartnerPredComparison">&gt;</button>
+                            </div>
+                            <p class="gallery-caption">
+                                <b>Ready-to-React vs MAGNeT (Ours):</b> Side-by-side comparison of partner prediction results between the Ready-to-React baseline and our MAGNeT model.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+ 
+                <!-- Partner Inpainting Comparison - ReMoS 
+                <h4 class="subsection-title">Partner Inpainting</h4>
+                <div class="comparison-section" data-comparison-index="1">
+                    <div class="comparison-header">
+                        <div class="comparison-method-title">ReMoS vs MAGNeT</div>
+                        <div class="comparison-navigation">
+                            <button class="comparison-nav-btn comp-prev-btn">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="comparison-counter">
+                                <span class="current">1</span> / 5
+                            </div>
+                            <button class="comparison-nav-btn comp-next-btn">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="comparison-videos">
+                        <div class="comparison-side">
+                            <div class="comparison-label">ReMoS</div>
+                            <div class="comparison-video">
+                                <video controls>
+                                    <source src="assets/MagNet-Teaser.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-placeholder">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="40" height="40">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comparison-side">
+                            <div class="comparison-label ours">MAGNeT (Ours)</div>
+                            <div class="comparison-video">
+                                <video controls>
+                                    <source src="assets/MagNet-Teaser.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-placeholder">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="40" height="40">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Partner Inpainting Comparison - Duolando 
+                <div class="comparison-section" data-comparison-index="1">
+                    <div class="comparison-header">
+                        <div class="comparison-method-title">Duolando vs MAGNeT</div>
+                        <div class="comparison-navigation">
+                            <button class="comparison-nav-btn comp-prev-btn">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="comparison-counter">
+                                <span class="current">1</span> / 5
+                            </div>
+                            <button class="comparison-nav-btn comp-next-btn">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="comparison-videos">
+                        <div class="comparison-side">
+                            <div class="comparison-label">Duolando</div>
+                            <div class="comparison-video">
+                                <video controls>
+                                    <source src="assets/MagNet-Teaser.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-placeholder">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="40" height="40">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comparison-side">
+                            <div class="comparison-label ours">MAGNeT (Ours)</div>
+                            <div class="comparison-video">
+                                <video controls>
+                                    <source src="assets/MagNet-Teaser.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-placeholder">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="40" height="40">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </section>
 
         </main>
     </div>
@@ -3917,6 +4465,256 @@
         drawMagnetNoisyCanvases();
         animateMagnetNoise(0);
     }
+
+    // ==========================================
+    // Video Gallery Navigation
+    // ==========================================
+    document.querySelectorAll('.video-gallery').forEach(gallery => {
+        const galleryId = gallery.getAttribute('id');
+        const leftBtn = document.querySelector(`.scrollLeftBtn[data-gallery="${galleryId}"]`);
+        const rightBtn = document.querySelector(`.scrollRightBtn[data-gallery="${galleryId}"]`);
+        const videos = gallery.querySelectorAll('.gallery-video');
+        
+        let isProgrammaticScroll = false;
+        let isNavigating = false;
+        let isHandlingScroll = false;
+        let isDragging = false;
+        
+        // Scroll to center the first video after a short delay
+        setTimeout(() => {
+            isProgrammaticScroll = true;
+            isNavigating = true;
+            const firstRealVideo = gallery.querySelector('[data-video-index="1"]');
+            if (firstRealVideo) {
+                requestAnimationFrame(() => {
+                    gallery.scrollLeft = 0;
+                    firstRealVideo.play().catch(() => {});
+                    
+                    setTimeout(() => {
+                        updatePlayingVideo();
+                        setTimeout(() => {
+                            isProgrammaticScroll = false;
+                            isNavigating = false;
+                        }, 500);
+                    }, 200);
+                });
+            } else {
+                isProgrammaticScroll = false;
+                isNavigating = false;
+            }
+        }, 500);
+        
+        function updatePlayingVideo() {
+            gallery.querySelectorAll('.gallery-video').forEach(v => v.classList.remove('center'));
+            gallery.querySelectorAll('.gallery-video').forEach(video => {
+                if (!video.paused && !video.ended && video.currentTime > 0) {
+                    video.classList.add('center');
+                }
+            });
+        }
+        
+        const allVideos = gallery.querySelectorAll('.gallery-video');
+        allVideos.forEach(video => {
+            video.addEventListener('play', () => {
+                allVideos.forEach(v => {
+                    if (v !== video) v.pause();
+                });
+                gallery.querySelectorAll('.gallery-video').forEach(v => v.classList.remove('center'));
+                video.classList.add('center');
+            });
+            
+            video.addEventListener('pause', () => {
+                if (video.classList.contains('center')) {
+                    video.classList.remove('center');
+                }
+            });
+        });
+        
+        if (leftBtn) {
+            leftBtn.addEventListener('click', () => {
+                if (isHandlingScroll || isProgrammaticScroll || isNavigating) return;
+                
+                isNavigating = true;
+                isProgrammaticScroll = true;
+                
+                const playingVideo = gallery.querySelector('.gallery-video.center');
+                const currentVideo = playingVideo || gallery.querySelector('.gallery-video');
+                
+                if (currentVideo) {
+                    const currentIndex = parseInt(currentVideo.getAttribute('data-video-index')) || 1;
+                    let prevIndex = currentIndex - 1;
+                    if (prevIndex < 1) prevIndex = videos.length;
+                    
+                    const prevVideo = gallery.querySelector(`[data-video-index="${prevIndex}"]`);
+                    if (prevVideo) {
+                        gallery.querySelectorAll('.gallery-video').forEach(v => {
+                            v.pause();
+                            v.currentTime = 0;
+                        });
+                        
+                        const clientWidth = gallery.clientWidth;
+                        const videoWidth = prevVideo.offsetWidth;
+                        const scrollPosition = Math.max(0, prevVideo.offsetLeft - gallery.offsetLeft - (clientWidth / 2) + (videoWidth / 2));
+                        gallery.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+                        
+                        setTimeout(() => {
+                            prevVideo.currentTime = 0;
+                            prevVideo.play().catch(() => {});
+                            updatePlayingVideo();
+                            
+                            setTimeout(() => {
+                                isProgrammaticScroll = false;
+                                isNavigating = false;
+                            }, 300);
+                        }, 500);
+                    } else {
+                        isProgrammaticScroll = false;
+                        isNavigating = false;
+                    }
+                } else {
+                    isProgrammaticScroll = false;
+                    isNavigating = false;
+                }
+            });
+        }
+        
+        if (rightBtn) {
+            rightBtn.addEventListener('click', () => {
+                if (isHandlingScroll || isProgrammaticScroll || isNavigating) return;
+                
+                isNavigating = true;
+                isProgrammaticScroll = true;
+                
+                const playingVideo = gallery.querySelector('.gallery-video.center');
+                const currentVideo = playingVideo || gallery.querySelector('.gallery-video');
+                
+                if (currentVideo) {
+                    const currentIndex = parseInt(currentVideo.getAttribute('data-video-index')) || 1;
+                    let nextIndex = currentIndex + 1;
+                    if (nextIndex > videos.length) nextIndex = 1;
+                    
+                    const nextVideo = gallery.querySelector(`[data-video-index="${nextIndex}"]`);
+                    if (nextVideo) {
+                        gallery.querySelectorAll('.gallery-video').forEach(v => {
+                            v.pause();
+                            v.currentTime = 0;
+                        });
+                        
+                        const clientWidth = gallery.clientWidth;
+                        const videoWidth = nextVideo.offsetWidth;
+                        const scrollPosition = Math.max(0, nextVideo.offsetLeft - gallery.offsetLeft - (clientWidth / 2) + (videoWidth / 2));
+                        gallery.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+                        
+                        setTimeout(() => {
+                            nextVideo.currentTime = 0;
+                            nextVideo.play().catch(() => {});
+                            updatePlayingVideo();
+                            
+                            setTimeout(() => {
+                                isProgrammaticScroll = false;
+                                isNavigating = false;
+                            }, 300);
+                        }, 500);
+                    } else {
+                        isProgrammaticScroll = false;
+                        isNavigating = false;
+                    }
+                } else {
+                    isProgrammaticScroll = false;
+                    isNavigating = false;
+                }
+            });
+        }
+        
+        // Handle scroll events
+        let scrollTimeout;
+        gallery.addEventListener('scroll', () => {
+            if (isDragging || isProgrammaticScroll || isNavigating || isHandlingScroll) return;
+            
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                if (!isDragging && !isProgrammaticScroll && !isNavigating && !isHandlingScroll) {
+                    updatePlayingVideo();
+                }
+            }, 150);
+        }, { passive: true });
+        
+        // Touch swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        gallery.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        gallery.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            const swipeThreshold = 50;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                const playingVideo = gallery.querySelector('.gallery-video.center');
+                const currentVideo = playingVideo || gallery.querySelector('.gallery-video');
+                
+                if (currentVideo) {
+                    const currentIndex = parseInt(currentVideo.getAttribute('data-video-index')) || 1;
+                    let targetIndex;
+                    
+                    if (diff > 0) {
+                        targetIndex = currentIndex + 1;
+                        if (targetIndex > videos.length) targetIndex = 1;
+                    } else {
+                        targetIndex = currentIndex - 1;
+                        if (targetIndex < 1) targetIndex = videos.length;
+                    }
+                    
+                    const targetVideo = gallery.querySelector(`[data-video-index="${targetIndex}"]`);
+                    if (targetVideo) {
+                        isProgrammaticScroll = true;
+                        const clientWidth = gallery.clientWidth;
+                        const videoWidth = targetVideo.offsetWidth;
+                        const scrollPosition = Math.max(0, targetVideo.offsetLeft - gallery.offsetLeft - (clientWidth / 2) + (videoWidth / 2));
+                        gallery.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+                        setTimeout(() => {
+                            targetVideo.play().catch(() => {});
+                            updatePlayingVideo();
+                            
+                            setTimeout(() => {
+                                isProgrammaticScroll = false;
+                                isNavigating = false;
+                            }, 400);
+                        }, 600);
+                    }
+                }
+            }
+        }, { passive: true });
+        
+        // Mouse drag support
+        let startX;
+        let scrollLeft;
+        
+        gallery.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - gallery.offsetLeft;
+            scrollLeft = gallery.scrollLeft;
+        });
+        
+        gallery.addEventListener('mouseleave', () => {
+            isDragging = false;
+        });
+        
+        gallery.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+        
+        gallery.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - gallery.offsetLeft;
+            const walk = (x - startX) * 2;
+            gallery.scrollLeft = scrollLeft - walk;
+        });
+    });
     </script>
 </body>
 </html>

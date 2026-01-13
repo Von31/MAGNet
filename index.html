@@ -1324,6 +1324,46 @@
             }
         }
 
+        /* Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Reduce animations on mobile for performance */
+        @media (max-width: 768px) {
+            .magnet-encoder-layer-bar::after,
+            .magnet-decoder-layer-bar::after,
+            .magnet-dfot-layer::after {
+                animation: none !important;
+            }
+            
+            .magnet-loop-icon {
+                animation: none !important;
+            }
+            
+            .magnet-condition-arrow-up {
+                animation: none !important;
+                background: #22c55e !important;
+            }
+            
+            /* Simplify noise cells on mobile - static instead of animated */
+            .magnet-epsilon-canvas,
+            .magnet-noisy-canvas {
+                display: none;
+            }
+            
+            .magnet-noise-cell,
+            .magnet-noisy-cell {
+                background: linear-gradient(135deg, #334155 0%, #1e293b 100%) !important;
+            }
+        }
+
         /* Extra small screens */
         @media (max-width: 480px) {
             .hero-section h2 {
@@ -2609,7 +2649,8 @@
                                         <source src="assets/model_results/4people/meta_quad_v10_2.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
-                                    <video class="gallery-video" src="assets/model_results/4people/meta_quad_v10_3.webm" autoplay muted playsinline loop data-video-index="4"></video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="4" poster="assets/model_results/4people/meta_quad_v10_3-thumbnail.jpg">
+                                        <source src="assets/model_results/4people/meta_quad_v10_3.webm" type="video/webm">
                                         <source src="assets/model_results/4people/meta_quad_v10_3.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
@@ -2824,21 +2865,7 @@
 
             <!-- Method Video Section -->
             <section id="method" class="section">
-                <!-- <div class="section-header">
-                    <h3>Method Video</h3>
-                    <p>Technical overview of the MAGNeT architecture and training process</p>
-                </div>
-            
-                    <div class="video-player">
-                        <video controls>
-                            <source src="assets/3801_MagNet_Teaser.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="play-icon-large">
-                            <div class="play-triangle"></div>
-                        </div>
-                    </div>
-                </div> -->
+             
 
                 <!-- MAGNeT Pipeline Visualization -->
                 <div class="section-header">
@@ -3524,6 +3551,36 @@
 
     <script>
     // ==========================================
+    // Mobile Performance Optimizations
+    // ==========================================
+    (function() {
+        const isMobileInit = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        if (isMobileInit || prefersReducedMotion) {
+            // Set preload to "none" for all videos on mobile to prevent memory issues
+            document.querySelectorAll('video').forEach(video => {
+                video.setAttribute('preload', 'none');
+                video.removeAttribute('autoplay');
+                video.pause();
+            });
+            
+            // Keep only teaser video with poster for initial display
+            const teaserVideo = document.querySelector('#teaser video');
+            if (teaserVideo) {
+                teaserVideo.setAttribute('preload', 'metadata');
+                // Allow teaser to be controlled but not autoplay
+                if (!prefersReducedMotion) {
+                    teaserVideo.setAttribute('controls', 'true');
+                }
+            }
+        }
+        
+        // Expose reduced motion preference for other scripts
+        window.prefersReducedMotion = prefersReducedMotion;
+    })();
+    
+    // ==========================================
     // DFoT Visualization
     // ==========================================
     const config = {
@@ -4175,10 +4232,15 @@
 
     function startAnimation() {
         if (intervalId) clearInterval(intervalId);
+        // Don't start if section not visible (will be set by observer)
+        if (typeof dfotSectionVisible !== 'undefined' && !dfotSectionVisible) return;
+        
+        // Use slower interval on mobile
+        const baseInterval = (typeof isMobile !== 'undefined' && isMobile) ? 100 : 50;
         intervalId = setInterval(() => {
             state.timeStep = (state.timeStep + 1) % getTotalFrames(state.mode);
             update();
-        }, 50 / state.speed);
+        }, baseInterval / state.speed);
     }
 
     function stopAnimation() {
@@ -4368,30 +4430,28 @@
     initGrid();
     drawLegendNoise();
     update();
-    startAnimation();
-
-
-    // Update active nav item on scroll
-    window.addEventListener('scroll', () => {
-        const sections = document.querySelectorAll('.section');
-        const navItems = document.querySelectorAll('.nav-item');
-        
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
+    
+    // Mobile detection
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+    
+    // Only start animation if section is visible (for performance)
+    let dfotSectionVisible = false;
+    const dfotSection = document.getElementById('denoising');
+    
+    const dfotObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            dfotSectionVisible = entry.isIntersecting;
+            if (entry.isIntersecting && state.isPlaying) {
+                startAnimation();
+            } else {
+                stopAnimation();
             }
         });
-
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href') === `#${current}`) {
-                item.classList.add('active');
-            }
-        });
-    });
+    }, { threshold: 0.1 });
+    
+    if (dfotSection) {
+        dfotObserver.observe(dfotSection);
+    }
 
     // MAGNeT Pipeline Visualization - Draw animated white noise on epsilon canvases with varying intensity
     function drawMagnetEpsilonNoise() {
@@ -4456,12 +4516,17 @@
         });
     }
 
-    // Animate noise at ~12fps for a nice flickering effect
+    // Animate noise - use slower rate on mobile
     let magnetNoiseAnimationId = null;
     let magnetLastNoiseTime = 0;
-    const magnetNoiseInterval = 83; // ~12fps
+    const magnetNoiseInterval = isMobile ? 200 : 83; // ~5fps on mobile, ~12fps on desktop
+    let magnetSectionVisible = false;
     
     function animateMagnetNoise(time) {
+        if (!magnetSectionVisible) {
+            magnetNoiseAnimationId = null;
+            return; // Stop animation when not visible
+        }
         if (time - magnetLastNoiseTime > magnetNoiseInterval) {
             drawMagnetEpsilonNoise();
             drawMagnetNoisyCanvases();
@@ -4469,23 +4534,53 @@
         }
         magnetNoiseAnimationId = requestAnimationFrame(animateMagnetNoise);
     }
+    
+    function startMagnetAnimation() {
+        if (!magnetNoiseAnimationId && magnetSectionVisible) {
+            magnetNoiseAnimationId = requestAnimationFrame(animateMagnetNoise);
+        }
+    }
+
+    // Observe MAGNeT section visibility
+    const magnetSection = document.getElementById('method');
+    const magnetObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            magnetSectionVisible = entry.isIntersecting;
+            if (entry.isIntersecting) {
+                startMagnetAnimation();
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    if (magnetSection) {
+        magnetObserver.observe(magnetSection);
+    }
 
     // Initialize MAGNeT visualization when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             drawMagnetEpsilonNoise();
             drawMagnetNoisyCanvases();
-            animateMagnetNoise(0);
+            // Don't auto-start animation - let observer handle it
         });
     } else {
         drawMagnetEpsilonNoise();
         drawMagnetNoisyCanvases();
-        animateMagnetNoise(0);
+        // Don't auto-start animation - let observer handle it
     }
 
     // ==========================================
     // Video Gallery Navigation
     // ==========================================
+    
+    // On mobile, pause all videos initially and only play when user interacts
+    if (isMobile) {
+        document.querySelectorAll('video[autoplay]').forEach(video => {
+            video.removeAttribute('autoplay');
+            video.pause();
+        });
+    }
+    
     document.querySelectorAll('.video-gallery').forEach(gallery => {
         const galleryId = gallery.getAttribute('id');
         const leftBtn = document.querySelector(`.scrollLeftBtn[data-gallery="${galleryId}"]`);
@@ -4496,9 +4591,25 @@
         let isNavigating = false;
         let isHandlingScroll = false;
         let isDragging = false;
+        let galleryVisible = false;
         
-        // Scroll to center the first video after a short delay
+        // Observe gallery visibility to pause videos when not visible
+        const galleryObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                galleryVisible = entry.isIntersecting;
+                if (!entry.isIntersecting) {
+                    // Pause all videos in this gallery when not visible
+                    videos.forEach(v => v.pause());
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        galleryObserver.observe(gallery);
+        
+        // Scroll to center the first video after a short delay (only on desktop or if gallery visible)
         setTimeout(() => {
+            if (isMobile) return; // Skip auto-scroll on mobile
+            
             isProgrammaticScroll = true;
             isNavigating = true;
             const firstRealVideo = gallery.querySelector('[data-video-index="1"]');

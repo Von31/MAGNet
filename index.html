@@ -2511,6 +2511,13 @@
                     </svg>
                     <span>Baseline Comparisons</span>
                 </a>
+                <a href="#ultralong" class="nav-item">
+                    <!-- Clock/Long duration icon for Ultra Long -->
+                    <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Ultra Long Motion</span>
+                </a>
             </nav>
         </aside>
 
@@ -2587,6 +2594,7 @@
                 <div class="capability-grid">
                     <!-- Dyadic Prediction -->
                     <div class="capability-card" data-capability="dyadic">
+                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Dyadic Prediction</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGalleryDyadic">
@@ -2605,7 +2613,11 @@
                                         <source src="assets/model_results/dyadic_prediction/G001T003A017R014_Chase.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
-                                    <video class="gallery-video" src="assets/model_results/dyadic_prediction/Samba_010_004.mp4" autoplay muted playsinline loop data-video-index="4"></video>
+                                    <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="4" poster="assets/model_results/dyadic_prediction/Samba_010_004-thumbnail.jpg">
+                                        <source src="assets/model_results/dyadic_prediction/Samba_010_004.webm" type="video/webm">
+                                        <source src="assets/model_results/dyadic_prediction/Samba_010_004.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
                                     <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="5" poster="assets/model_results/dyadic_prediction/Tango_005_023-thumbnail.jpg">
                                         <source src="assets/model_results/dyadic_prediction/Tango_005_023.webm" type="video/webm">
                                         <source src="assets/model_results/dyadic_prediction/Tango_005_023.mp4" type="video/mp4">
@@ -2627,6 +2639,7 @@
 
                     <!-- Polyadic Prediction(N=3) -->
                     <div class="capability-card" data-capability="polyadic3">
+                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Polyadic Prediction(N=3)</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGalleryPolyadic3">
@@ -2671,6 +2684,7 @@
 
                     <!-- Polyadic Prediction(N=4) -->
                     <div class="capability-card" data-capability="polyadic4">
+                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Polyadic Prediction(N=4)</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGalleryPolyadic4">
@@ -2714,6 +2728,7 @@
                     </div>
                     <!-- Sync: Agentic Sampling -->
                     <div class="capability-card" data-capability="sync">
+                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Synchronous Agentic Sampling</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGallerySync">
@@ -2749,6 +2764,7 @@
 
                     <!-- Async: Agentic Sampling -->
                     <div class="capability-card" data-capability="async">
+                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Asynchronous Agentic Sampling</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGalleryAsync">
@@ -2786,6 +2802,7 @@
 
                     <!-- Partner Prediction -->
                     <div class="capability-card" data-capability="partnerpred">
+                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Partner Prediction</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGalleryPartnerPred">
@@ -2830,6 +2847,7 @@
 
                     <!-- Partner Inpainting -->
                     <div class="capability-card" data-capability="partnerinpaint">
+                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Partner Inpainting</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGalleryPartnerInpaint">
@@ -2864,6 +2882,7 @@
 
                     <!-- Inbetweening -->
                     <div class="capability-card" data-capability="inbetween">
+                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Motion In-Betweening</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGalleryInbetween">
@@ -3390,7 +3409,7 @@
                 </div>
 
                 <!-- Dyadic Prediction Comparison -->
-                <h4 class="subsection-title">Dyadic Prediction</h4>
+                <h4 class="subsection-title">Dyadic Prediction: Ready-to-React Vs MAGNeT (Ours)</h4>
                 <div class="capability-card" data-capability="dyadic-comparison">
                     <div class="video-gallery-section">
                         <div class="video-gallery-container">
@@ -3435,7 +3454,7 @@
                 </div>
 
                 <!-- Partner Prediction Comparison -->
-                <h4 class="subsection-title">Partner Prediction</h4>
+                <h4 class="subsection-title">Partner Prediction: Ready-to-React Vs MAGNeT (Ours)</h4>
                 <div class="capability-card" data-capability="partner-prediction-comparison">
                     <div class="video-gallery-section">
                         <div class="video-gallery-container">
@@ -3478,64 +3497,10 @@
                         </div>
                     </div>
                 </div>
- 
-                <!-- Partner Inpainting Comparison - ReMoS 
-                <h4 class="subsection-title">Partner Inpainting</h4>
-                <div class="comparison-section" data-comparison-index="1">
-                    <div class="comparison-header">
-                        <div class="comparison-method-title">ReMoS vs MAGNeT</div>
-                        <div class="comparison-navigation">
-                            <button class="comparison-nav-btn comp-prev-btn">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                                </svg>
-                            </button>
-                            <div class="comparison-counter">
-                                <span class="current">1</span> / 5
-                            </div>
-                            <button class="comparison-nav-btn comp-next-btn">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="comparison-videos">
-                        <div class="comparison-side">
-                            <div class="comparison-label">ReMoS</div>
-                            <div class="comparison-video">
-                                <video controls>
-                                    <source src="assets/MagNet-Teaser.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-placeholder">
-                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="40" height="40">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comparison-side">
-                            <div class="comparison-label ours">MAGNeT (Ours)</div>
-                            <div class="comparison-video">
-                                <video controls>
-                                    <source src="assets/MagNet-Teaser.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-placeholder">
-                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="40" height="40">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
+                
+                
                 <!-- Partner Inpainting Comparison - Duolando -->
-                <h4 class="subsection-title">Partner Inpainting</h4>
+                <h4 class="subsection-title">Partner Inpainting: Duolando Vs MAGNeT (Ours)</h4>
                 <div class="capability-card" data-capability="partner-inpainting-comparison">
                     <div class="video-gallery-section">
                         <div class="video-gallery-container">
@@ -3567,6 +3532,63 @@
                             </p>
                         </div>
                     </div>
+                </div>
+                <!-- Partner Inpainting Comparison - ReMoS -->
+                <h4 class="subsection-title">Partner Inpainting: ReMoS Vs MAGNeT (Ours)</h4>
+                <div class="capability-card" data-capability="partner-inpainting-remos-comparison">
+                    <div class="video-gallery-section">
+                        <div class="video-gallery-container">
+                            <div class="video-gallery" id="videoGalleryPartnerInpaintingRemosComparison">
+                                <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="1" poster="assets/model_results/baselines_remos_inpainting/8_3_caption_remos-thumbnail.jpg">
+                                    <source src="assets/model_results/baselines_remos_inpainting/8_3_caption_remos.webm" type="video/webm">
+                                    <source src="assets/model_results/baselines_remos_inpainting/8_3_caption_remos.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="2" poster="assets/model_results/baselines_remos_inpainting/8_1_caption_remos-thumbnail.jpg">
+                                    <source src="assets/model_results/baselines_remos_inpainting/8_1_caption_remos.webm" type="video/webm">
+                                    <source src="assets/model_results/baselines_remos_inpainting/8_1_caption_remos.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="3" poster="assets/model_results/baselines_remos_inpainting/8_2_caption_remos-thumbnail.jpg">
+                                    <source src="assets/model_results/baselines_remos_inpainting/8_2_caption_remos.webm" type="video/webm">
+                                    <source src="assets/model_results/baselines_remos_inpainting/8_2_caption_remos.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div class="gallery-caption-container">
+                            <div class="gallery-nav-controls">
+                                <button class="gallery-nav left scrollLeftBtn" data-gallery="videoGalleryPartnerInpaintingRemosComparison">&lt;</button>
+                                <button class="gallery-nav right scrollRightBtn" data-gallery="videoGalleryPartnerInpaintingRemosComparison">&gt;</button>
+                            </div>
+                            <p class="gallery-caption">
+                                <b>ReMoS vs MAGNeT (Ours):</b> Side-by-side comparison of partner inpainting results between the ReMoS baseline and our MAGNeT model.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+          
+            </section>
+
+            <!-- Ultra Long Generated Motion Section -->
+            <section id="ultralong" class="section">
+                <div class="section-header">
+                    <h3>Ultra Long Motion Generation</h3>
+                    <p>MAGNeT can autoregressively generate hundreds of realistic motions for ultra-long sequences</p>
+                </div>
+
+                <div class="teaser-video">
+                    <div class="video-player">
+                        <video controls autoplay muted playsinline loop preload="metadata" poster="assets/model_results/ultra_long/waltz_4-thumbnail.jpg">
+                            <source src="assets/model_results/ultra_long/waltz_4.webm" type="video/webm">
+                            <source src="assets/model_results/ultra_long/waltz_4.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <p style="padding: 1.5rem 2rem; text-align: center; color: #4b5563; font-size: 1.0625rem; line-height: 1.7; margin: 0; background: #f9fafb; border-top: 1px solid #e5e7eb;">
+                        <b>Ultra Long Motion Generation:</b> MAGNeT generates extended motion sequences maintaining coordination and realism. This demonstrates the model's ability to generate ultra-long, coherent motion sequences with consistent dynamics and timing. The pink mesh is the context (4 frames, 1 second), the grey mesh is the ground truth, and the red and blue meshes are the generated motions. The ground truth motion ends at 44 seconds, represented by the frozen grey meshes, and we generate motion beyond the available ground truth.
+                    </p>
                 </div>
             </section>
 

@@ -3579,15 +3579,19 @@
                 </div>
 
                 <div class="teaser-video">
-                    <div class="video-player">
-                        <video controls autoplay muted playsinline loop preload="metadata" poster="assets/model_results/ultra_long/waltz_4-thumbnail.jpg">
+                    <div class="video-player" id="ultralongVideoPlayer" style="cursor: pointer; position: relative;">
+                        <img src="assets/model_results/ultra_long/waltz_4-thumbnail.jpg" alt="Ultra Long Motion Preview" style="width: 100%; height: auto; display: block;" id="ultralongPoster">
+                        <div class="play-icon-large" id="ultralongPlayBtn" style="pointer-events: auto;">
+                            <div class="play-triangle"></div>
+                        </div>
+                        <video id="ultralongVideo" controls muted playsinline loop preload="none" style="display: none; width: 100%;">
                             <source src="assets/model_results/ultra_long/waltz_4.webm" type="video/webm">
                             <source src="assets/model_results/ultra_long/waltz_4.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <p style="padding: 1.5rem 2rem; text-align: center; color: #4b5563; font-size: 1.0625rem; line-height: 1.7; margin: 0; background: #f9fafb; border-top: 1px solid #e5e7eb;">
-                        <b>Ultra Long Motion Generation:</b> MAGNeT generates extended motion sequences maintaining coordination and realism. This demonstrates the model's ability to generate ultra-long, coherent motion sequences with consistent dynamics and timing. The pink mesh is the context (4 frames, 1 second), the grey mesh is the ground truth, and the red and blue meshes are the generated motions. The ground truth motion ends at 44 seconds, represented by the frozen grey meshes, and we generate motion beyond the available ground truth.
+                        <b>Ultra Long Motion Generation:</b> MAGNeT generates extended motion sequences maintaining coordination and realism. This demonstrates the model's ability to generate ultra-long, coherent motion sequences with consistent dynamics and timing. The pink mesh is the context (4 frames, 1 second), the grey mesh is the ground truth, and the red and blue meshes are the generated motions samples. The ground truth motion ends at 44 seconds, represented by the frozen grey meshes, and we generate motion beyond the available ground truth.
                     </p>
                 </div>
             </section>
@@ -4889,6 +4893,27 @@
             gallery.scrollLeft = scrollLeft - walk;
         });
     });
+
+    // ==========================================
+    // Ultra Long Video Lazy Loading
+    // ==========================================
+    const ultralongPlayer = document.getElementById('ultralongVideoPlayer');
+    const ultralongPoster = document.getElementById('ultralongPoster');
+    const ultralongPlayBtn = document.getElementById('ultralongPlayBtn');
+    const ultralongVideo = document.getElementById('ultralongVideo');
+    
+    if (ultralongPlayer && ultralongVideo) {
+        const loadAndPlayVideo = () => {
+            ultralongPoster.style.display = 'none';
+            ultralongPlayBtn.style.display = 'none';
+            ultralongVideo.style.display = 'block';
+            ultralongVideo.load();
+            ultralongVideo.play().catch(() => {});
+            ultralongPlayer.style.cursor = 'default';
+        };
+        
+        ultralongPlayer.addEventListener('click', loadAndPlayVideo);
+    }
     </script>
 </body>
 </html>

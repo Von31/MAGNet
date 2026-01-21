@@ -1220,6 +1220,15 @@
             .section-header p {
                 font-size: 1rem;
             }
+
+            .card-title {
+                font-size: 1.25rem;
+            }
+
+            .subsection-title {
+                font-size: 1.25rem;
+                margin: 2rem 0 1rem;
+            }
             
             .teaser-video {
                 max-width: 100%;
@@ -1422,6 +1431,15 @@
                 font-size: 1.25rem;
             }
 
+            .card-title {
+                font-size: 1.1rem;
+            }
+
+            .subsection-title {
+                font-size: 1.1rem;
+                margin: 1.5rem 0 0.75rem;
+            }
+
             .logo-links {
                 gap: 1rem;
             }
@@ -1501,10 +1519,18 @@
         }
 
         .subsection-title {
-            font-size: 1.75rem;
-            margin: 3rem 0 1.5rem;
+            font-size: clamp(1.25rem, 4vw, 2rem);
+            margin: 2rem 0 1.5rem;
             color: #1f2937;
-            font-weight: 600;
+            font-weight: 450;
+        }
+
+        .card-title {
+            text-align: center;
+            margin: 0 0 1rem 0;
+            font-size: clamp(1.25rem, 4vw, 2rem);
+            font-weight: 450;
+            color: #1f2937;
         }
 
         /* Method Sub-tabs */
@@ -2579,7 +2605,7 @@
                 <div class="section-header">
                     <h3>Abstract</h3>
                     <p>
-                        Understanding and generating multi-person interactions is a fundamental challenge with broad implications for robotics and social computing. While humans naturally coordinate in groups, capturing this complexity in generative models remains an open problem. Current motion generation methods are specialized, handling only isolated tasks like dyadic reactions or partner prediction, and lack unified capabilities for comprehensive multi-agent motion generation. We introduce MAGNeT, Multi-Agent Diffusion Forcing Transformer, a unified autoregressive diffusion framework that bridges this gap. The model seamlessly handles interactions among multiple people and supports flexible sampling strategies for various tasks, including dyadic prediction, partner inpainting, and multi-agent motion generation. It can autoregressively generate hundreds of realistic motions for ultra-long sequences, capturing both synchronized activities (e.g., dancing, boxing) and diverse social interactions. Building on Diffusion Forcing, we introduce key modifications to enable effective modeling of inter-agent interactions. Our model performs on-par with specialized methods on dyadic interactions while naturally extending to polyadic scenarios with three or more people—a capability enabled by our framework's scalable architecture.
+                        Understanding and generating multi-person interactions is a fundamental challenge with broad implications for robotics and social computing. While humans naturally coordinate in groups, capturing this complexity in generative models remains an open problem. Current motion generation methods are specialized, handling only isolated tasks like dyadic reactions or partner prediction, and lack unified capabilities for comprehensive multi-agent motion generation. We introduce MAGNeT, Multi-Agent Diffusion Forcing Transformer Network, a unified autoregressive diffusion framework that bridges this gap. The model seamlessly handles interactions among multiple people and supports flexible sampling strategies for various tasks, including dyadic prediction, partner inpainting, and multi-agent motion generation. It can autoregressively generate hundreds of realistic motions for ultra-long sequences, capturing both synchronized activities (e.g., dancing, boxing) and diverse social interactions. Building on Diffusion Forcing, we introduce key modifications to enable effective modeling of inter-agent interactions. Our model performs on-par with specialized methods on dyadic interactions while naturally extending to polyadic scenarios with three or more people—a capability enabled by our framework's scalable architecture.
                     </p>
                 </div>
             </section>
@@ -2594,7 +2620,7 @@
                 <div class="capability-grid">
                     <!-- Dyadic Prediction -->
                     <div class="capability-card" data-capability="dyadic">
-                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Dyadic Prediction</h4>
+                        <h4 class="card-title">Dyadic Prediction</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGalleryDyadic">
@@ -2639,7 +2665,7 @@
 
                     <!-- Polyadic Prediction(N=3) -->
                     <div class="capability-card" data-capability="polyadic3">
-                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Polyadic Prediction(N=3)</h4>
+                        <h4 class="card-title">Polyadic Prediction(N=3)</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGalleryPolyadic3">
@@ -2684,7 +2710,7 @@
 
                     <!-- Polyadic Prediction(N=4) -->
                     <div class="capability-card" data-capability="polyadic4">
-                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Polyadic Prediction(N=4)</h4>
+                        <h4 class="card-title">Polyadic Prediction(N=4)</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGalleryPolyadic4">
@@ -2728,7 +2754,7 @@
                     </div>
                     <!-- Sync: Agentic Sampling -->
                     <div class="capability-card" data-capability="sync">
-                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Synchronous Agentic Sampling</h4>
+                        <h4 class="card-title">Synchronous Agentic Sampling</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGallerySync">
@@ -2764,7 +2790,7 @@
 
                     <!-- Async: Agentic Sampling -->
                     <div class="capability-card" data-capability="async">
-                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Asynchronous Agentic Sampling</h4>
+                        <h4 class="card-title">Asynchronous Agentic Sampling</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGalleryAsync">
@@ -2802,7 +2828,7 @@
 
                     <!-- Partner Prediction -->
                     <div class="capability-card" data-capability="partnerpred">
-                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Partner Prediction</h4>
+                        <h4 class="card-title">Partner Prediction</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGalleryPartnerPred">
@@ -2847,7 +2873,7 @@
 
                     <!-- Partner Inpainting -->
                     <div class="capability-card" data-capability="partnerinpaint">
-                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Partner Inpainting</h4>
+                        <h4 class="card-title">Partner Inpainting</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGalleryPartnerInpaint">
@@ -2882,7 +2908,7 @@
 
                     <!-- Inbetweening -->
                     <div class="capability-card" data-capability="inbetween">
-                        <h4 class="card-title" style="text-align: center; margin: 0 0 1rem 0; font-size: 2rem; font-weight: 450; color: #1f2937;">Motion In-Betweening</h4>
+                        <h4 class="card-title">Motion In-Betweening</h4>
                         <div class="video-gallery-section">
                             <div class="video-gallery-container">
                                 <div class="video-gallery" id="videoGalleryInbetween">
@@ -3578,7 +3604,7 @@
                     <p>MAGNeT can autoregressively generate hundreds of realistic motions for ultra-long sequences</p>
                 </div>
 
-                <div class="teaser-video">
+                <div class="teaser-video" style="max-width: 100%;">
                     <div class="video-player" id="ultralongVideoPlayer" style="cursor: pointer; position: relative;">
                         <img src="assets/model_results/ultra_long/waltz_4-thumbnail.jpg" alt="Ultra Long Motion Preview" style="width: 100%; height: auto; display: block;" id="ultralongPoster">
                         <div class="play-icon-large" id="ultralongPlayBtn" style="pointer-events: auto;">
@@ -3601,33 +3627,79 @@
 
     <script>
     // ==========================================
-    // Mobile Performance Optimizations
+    // Lazy Loading for All Videos
     // ==========================================
     (function() {
         const isMobileInit = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         
-        if (isMobileInit || prefersReducedMotion) {
-            // Set preload to "none" for all videos on mobile to prevent memory issues
-            document.querySelectorAll('video').forEach(video => {
-                video.setAttribute('preload', 'none');
-                video.removeAttribute('autoplay');
-                video.pause();
-            });
+        // Store original sources and remove them to prevent loading
+        document.querySelectorAll('video').forEach(video => {
+            // Skip ultra long video (has its own lazy loading)
+            if (video.id === 'ultralongVideo') return;
             
-            // Keep only teaser video with poster for initial display
-            const teaserVideo = document.querySelector('#teaser video');
-            if (teaserVideo) {
-                teaserVideo.setAttribute('preload', 'metadata');
-                // Allow teaser to be controlled but not autoplay
-                if (!prefersReducedMotion) {
-                    teaserVideo.setAttribute('controls', 'true');
-                }
-            }
-        }
+            // Skip method pipeline videos (input/output) - let them play automatically
+            if (video.closest('.magnet-video-box')) return;
+            
+            // Skip teaser video
+            if (video.closest('#teaser')) return;
+            
+            // Store sources in data attributes
+            const sources = video.querySelectorAll('source');
+            const sourceData = [];
+            sources.forEach(source => {
+                sourceData.push({ src: source.src, type: source.type });
+            });
+            video.dataset.sources = JSON.stringify(sourceData);
+            
+            // Remove sources to prevent loading
+            sources.forEach(source => source.remove());
+            
+            // Set preload to none and remove autoplay
+            video.setAttribute('preload', 'none');
+            video.removeAttribute('autoplay');
+            video.pause();
+            
+            // Mark as not loaded
+            video.dataset.loaded = 'false';
+        });
         
-        // Expose reduced motion preference for other scripts
+        // Lazy load videos when they become visible (but don't auto-play - let gallery handle that)
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const video = entry.target;
+                    if (video.dataset.loaded === 'false' && video.dataset.sources) {
+                        // Add sources back
+                        const sources = JSON.parse(video.dataset.sources);
+                        sources.forEach(sourceData => {
+                            const source = document.createElement('source');
+                            source.src = sourceData.src;
+                            source.type = sourceData.type;
+                            video.appendChild(source);
+                        });
+                        video.dataset.loaded = 'true';
+                        video.load();
+                        // Don't auto-play here - let gallery initialization handle playing video 1
+                    }
+                } else {
+                    // Pause videos when not visible to save resources
+                    const video = entry.target;
+                    if (!video.paused) {
+                        video.pause();
+                    }
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '100px' });
+        
+        // Observe only gallery videos (exclude ultra long, method pipeline, and teaser)
+        document.querySelectorAll('.gallery-video').forEach(video => {
+            videoObserver.observe(video);
+        });
+        
+        // Expose for other scripts
         window.prefersReducedMotion = prefersReducedMotion;
+        window.isMobileInit = isMobileInit;
     })();
     
     // ==========================================
@@ -4479,19 +4551,28 @@
     initYAxisNumbers();
     initGrid();
     drawLegendNoise();
+    
+    // Use global mobile detection
+    const isMobile = window.isMobileInit;
+    
+    // On mobile, disable animation entirely and show static final state
+    if (isMobile) {
+        state.isPlaying = false;
+        state.timeStep = getTotalFrames(state.mode) - 1; // Show final denoised state
+        playBtn.textContent = '▶ Play';
+        playBtn.className = 'dfot-btn dfot-btn-play paused';
+    }
+    
     update();
     
-    // Mobile detection
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
-    
-    // Only start animation if section is visible (for performance)
+    // Only start animation if section is visible AND not on mobile (for performance)
     let dfotSectionVisible = false;
     const dfotSection = document.getElementById('denoising');
     
     const dfotObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             dfotSectionVisible = entry.isIntersecting;
-            if (entry.isIntersecting && state.isPlaying) {
+            if (entry.isIntersecting && state.isPlaying && !isMobile) {
                 startAnimation();
             } else {
                 stopAnimation();
@@ -4566,16 +4647,16 @@
         });
     }
 
-    // Animate noise - use slower rate on mobile
+    // Animate noise - completely disabled on mobile for performance
     let magnetNoiseAnimationId = null;
     let magnetLastNoiseTime = 0;
-    const magnetNoiseInterval = isMobile ? 200 : 83; // ~5fps on mobile, ~12fps on desktop
+    const magnetNoiseInterval = 83; // ~12fps on desktop
     let magnetSectionVisible = false;
     
     function animateMagnetNoise(time) {
-        if (!magnetSectionVisible) {
+        if (!magnetSectionVisible || isMobile) {
             magnetNoiseAnimationId = null;
-            return; // Stop animation when not visible
+            return; // Stop animation when not visible or on mobile
         }
         if (time - magnetLastNoiseTime > magnetNoiseInterval) {
             drawMagnetEpsilonNoise();
@@ -4586,49 +4667,55 @@
     }
     
     function startMagnetAnimation() {
-        if (!magnetNoiseAnimationId && magnetSectionVisible) {
+        if (!magnetNoiseAnimationId && magnetSectionVisible && !isMobile) {
             magnetNoiseAnimationId = requestAnimationFrame(animateMagnetNoise);
         }
     }
 
-    // Observe MAGNeT section visibility
+    // Observe MAGNeT section visibility (only animate on desktop)
     const magnetSection = document.getElementById('method');
-    const magnetObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            magnetSectionVisible = entry.isIntersecting;
-            if (entry.isIntersecting) {
-                startMagnetAnimation();
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    if (magnetSection) {
-        magnetObserver.observe(magnetSection);
+    if (!isMobile) {
+        const magnetObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                magnetSectionVisible = entry.isIntersecting;
+                if (entry.isIntersecting) {
+                    startMagnetAnimation();
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        if (magnetSection) {
+            magnetObserver.observe(magnetSection);
+        }
     }
 
-    // Initialize MAGNeT visualization when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-            drawMagnetEpsilonNoise();
-            drawMagnetNoisyCanvases();
-            // Don't auto-start animation - let observer handle it
-        });
-    } else {
-        drawMagnetEpsilonNoise();
-        drawMagnetNoisyCanvases();
-        // Don't auto-start animation - let observer handle it
-    }
+    // Initialize MAGNeT visualization - draw once (static on mobile)
+    drawMagnetEpsilonNoise();
+    drawMagnetNoisyCanvases();
 
     // ==========================================
     // Video Gallery Navigation
     // ==========================================
     
-    // On mobile, pause all videos initially and only play when user interacts
-    if (isMobile) {
-        document.querySelectorAll('video[autoplay]').forEach(video => {
-            video.removeAttribute('autoplay');
-            video.pause();
-        });
+    // Helper function to ensure video sources are loaded before playing
+    function ensureVideoLoaded(video) {
+        if (video.dataset.loaded === 'false' && video.dataset.sources) {
+            const sources = JSON.parse(video.dataset.sources);
+            sources.forEach(sourceData => {
+                const source = document.createElement('source');
+                source.src = sourceData.src;
+                source.type = sourceData.type;
+                video.appendChild(source);
+            });
+            video.dataset.loaded = 'true';
+            video.load();
+        }
+    }
+    
+    // Helper function to play video with lazy loading support
+    function playVideo(video) {
+        ensureVideoLoaded(video);
+        return video.play().catch(() => {});
     }
     
     document.querySelectorAll('.video-gallery').forEach(gallery => {
@@ -4656,9 +4743,9 @@
         
         galleryObserver.observe(gallery);
         
-        // Scroll to center the first video after a short delay (only on desktop or if gallery visible)
+        // Scroll to center the first video after a short delay (only on desktop)
         setTimeout(() => {
-            if (isMobile) return; // Skip auto-scroll on mobile
+            if (window.isMobileInit) return; // Skip auto-scroll on mobile
             
             isProgrammaticScroll = true;
             isNavigating = true;
@@ -4666,7 +4753,17 @@
             if (firstRealVideo) {
                 requestAnimationFrame(() => {
                     gallery.scrollLeft = 0;
-                    firstRealVideo.play().catch(() => {});
+                    
+                    // Pause all other videos first
+                    videos.forEach(v => {
+                        if (v !== firstRealVideo) {
+                            v.pause();
+                        }
+                    });
+                    
+                    // Play video 1
+                    playVideo(firstRealVideo);
+                    firstRealVideo.classList.add('center');
                     
                     setTimeout(() => {
                         updatePlayingVideo();
@@ -4680,7 +4777,7 @@
                 isProgrammaticScroll = false;
                 isNavigating = false;
             }
-        }, 500);
+        }, 800);
         
         function updatePlayingVideo() {
             gallery.querySelectorAll('.gallery-video').forEach(v => v.classList.remove('center'));
@@ -4737,7 +4834,7 @@
                         
                         setTimeout(() => {
                             prevVideo.currentTime = 0;
-                            prevVideo.play().catch(() => {});
+                            playVideo(prevVideo);
                             updatePlayingVideo();
                             
                             setTimeout(() => {
@@ -4785,7 +4882,7 @@
                         
                         setTimeout(() => {
                             nextVideo.currentTime = 0;
-                            nextVideo.play().catch(() => {});
+                            playVideo(nextVideo);
                             updatePlayingVideo();
                             
                             setTimeout(() => {
@@ -4854,7 +4951,7 @@
                         const scrollPosition = Math.max(0, targetVideo.offsetLeft - gallery.offsetLeft - (clientWidth / 2) + (videoWidth / 2));
                         gallery.scrollTo({ left: scrollPosition, behavior: 'smooth' });
                         setTimeout(() => {
-                            targetVideo.play().catch(() => {});
+                            playVideo(targetVideo);
                             updatePlayingVideo();
                             
                             setTimeout(() => {

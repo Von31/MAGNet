@@ -2316,8 +2316,6 @@
             margin-top: 16px;
             padding-top: 14px;
             border-top: 1px solid #cbd5e1;
-            padding-top: 14px;
-            border-top: 1px solid #cbd5e1;
         }
 
         .magnet-legend-group {
@@ -2767,9 +2765,7 @@
             <section class="hero-section">
                 <h2>Diffusion Forcing for Multi-Agent Interaction Sequence Modeling</h2>
                 <br>
-                <p class="hero-description">Vongani H. Maluleke<sup>*&sect;</sup>, Kie Horiuchi<sup>*&dagger;&sect;</sup>, Lea Wilken<sup>&sect;</sup>, Evonne Ng<sup>&Dagger;</sup>, Jitendra Malik<sup>&sect;</sup>, Angjoo Kanazawa<sup>&sect;</sup></p>
-                <p class="hero-description"> Sony Group Corporation<sup>&dagger;</sup>, Meta<sup>&Dagger;</sup>, UC Berkeley<sup>&sect;</sup></p>
-
+                <p class="hero-description"><a href="https://people.eecs.berkeley.edu/~vongani_maluleke/">Vongani H. Maluleke</a><sup>*&sect;</sup>, <a href="https://www.linkedin.com/in/kie-horiuchi-95b58434a/">Kie Horiuchi</a><sup>*&dagger;&sect;</sup>, <a href="https://muelea.github.io/">Lea Wilken</a><sup>&sect;</sup>, <a href="https://evonneng.github.io/">Evonne Ng</a><sup>&Dagger;</sup>, <a href="https://people.eecs.berkeley.edu/~malik/">Jitendra Malik</a><sup>&sect;</sup>, <a href="https://people.eecs.berkeley.edu/~kanazawa/">Angjoo Kanazawa</a><sup>&sect;</sup><br>Sony Group Corporation<sup>&dagger;</sup>, Meta<sup>&Dagger;</sup>, UC Berkeley<sup>&sect;</sup></p>
                 <p class="hero-description" style="font-size: 1rem; color: #6b7280;"><sup>*</sup>Equal contribution</p>
 
                 <div class="logo-links">
@@ -2782,12 +2778,12 @@
                       <span class="logo-link-label">Paper</span>
                   </div>
                   <div class="logo-link-wrapper">
-                      <a href="#code" class="logo-link">
+                      <a href="https://github.com/Von31/MAGNet-code" class="logo-link">
                           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                           </svg>
                       </a>
-                      <span class="logo-link-label">Code Coming Soon</span>
+                      <span class="logo-link-label">Code</span>
                   </div>
               </div>
             </section>
@@ -3017,16 +3013,18 @@
                                     <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="2" poster="assets/model_results/async/108_tian_free_ma_free_te0-thumbnail.jpg">
                                         <source src="assets/model_results/async/108_tian_free_ma_free_te0.webm" type="video/webm">
                                         <source src="assets/model_results/async/108_tian_free_ma_free_te0.mp4" type="video/mp4">
-                                        <!-- Your browser does not support the video tag. -->
+                                        Your browser does not support the video tag.
                                     </video>
                                     <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="3" poster="assets/model_results/async/110_tian_free_ma_free_te0-thumbnail.jpg">
                                         <source src="assets/model_results/async/110_tian_free_ma_free_te0.webm" type="video/webm">
                                         <source src="assets/model_results/async/110_tian_free_ma_free_te0.mp4" type="video/mp4">
-                                        <!-- Your browser does not support the video tag. -->
+                                        Your browser does not support the video tag.
                                     </video>
                                     <video class="gallery-video" controls autoplay muted playsinline loop preload="metadata" data-video-index="4" poster="assets/model_results/async/111_tian_free_ma_free_te0-thumbnail.jpg">
                                         <source src="assets/model_results/async/111_tian_free_ma_free_te0.webm" type="video/webm">
                                         <source src="assets/model_results/async/111_tian_free_ma_free_te0.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
                                 </div>
                             </div>
                             <div class="gallery-caption-container">
@@ -4747,7 +4745,8 @@
         });
     });
 
-    // Update active nav item on scroll
+    // Update active nav item on scroll (rAF-throttled to avoid layout thrash)
+    let scrollNavRaf = null;
     window.addEventListener('scroll', () => {
         const sections = document.querySelectorAll('.section');
         let current = '';
